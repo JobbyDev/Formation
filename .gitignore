@@ -18,3 +18,10 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+###>les commande à passe sur la ligne de commande ###
+symfony console doctrine:database:create
+symfony console make:entity
+symfony console make:migration
+symfony console doctrine:migrations:migrate
+###>les commande à passe sur la ligne de commande ###
