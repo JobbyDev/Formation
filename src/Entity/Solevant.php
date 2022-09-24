@@ -63,9 +63,19 @@ class Solevant
     private $peremption;
 
     /**
-     * @ORM\Column(type="string", length=75)
+     * @ORM\Column(type="string", length=75, nullable=true)
      */
     private $defalcation;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime("now", new \DateTimeZone('Europe/Paris'));
+    }
 
     public function getId(): ?int
     {
@@ -188,6 +198,18 @@ class Solevant
     public function setDefalcation(string $defalcation): self
     {
         $this->defalcation = $defalcation;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration Des Articles{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="example-wrapper">
+        <div class="container mt-4">
+
+            <h1>Gérer les article</h1>
+
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Nomination</th>
+                    <th>Produit</th>
+                    <th>Fournisseur</th>
+                    <th>Reference</th>
+                    <th>Rangemant</th>
+                    <th>Stock Min</th>
+                    <th>Stock Réel</th>
+                    <th>Numéro De Lot</th>
+                    <th>Péremption</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for solevant in solevants%}
+                    <tr>
+                        <td>{{ solevant.nomination }}</td>
+                        <td>{{ solevant.produit }}</td>
+                        <td>{{ solevant.fournisseur }}</td>
+                        <td>{{ solevant.reference }}</td>
+                        <td>{{ solevant.rangement }}</td>
+                        <td>{{ solevant.stockMin }}</td>
+                        <td>{{ solevant.stockReel }}</td>
+                        <td>{{ solevant.numeroDeLot }}</td>
+                        <td>{{ solevant.peremption }}</td>
+                        <td>{{ solevant.defalcation }}</td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
